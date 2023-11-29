@@ -19,6 +19,9 @@ body{
 .debug .small-container{
     background-color: rgb(92, 92, 221);
 }
+.debug .big-container{
+    background-color: yellow;
+}
 .debug .notify{
     height: 5rem; 
     background-color: violet;
@@ -28,9 +31,13 @@ body{
     background-color: aqua;
 }
 .debug .list{
-    height: 80px;
+    height: 5rem; 
     border: 1px solid black;
     background-color: blueviolet;
+}
+.debug .write-bar{
+    background-color: aqua;
+    height: 70px;
 }
 /* debug */
 
@@ -53,11 +60,22 @@ body{
         height: 100%;
         background-color: rgb(92, 92, 221);
     }
+    /*div utente */
     .current-user{
         width: 100%;
-        background-color: red;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-    .list{
+    .icon-list{
+        display: flex;
+    }
+    .icon{
+        padding-right: 21px;
+    }
+     /*div utente */
+    .list, 
+    .icon-list{
         list-style: none;
     }
     /* small container */
@@ -65,7 +83,20 @@ body{
     .big-container{
         width: 65%;
         height: 100%;
-        background-color: yellow;
+        display: flex;
+        flex-direction: column;
+    }
+    .write-bar{
+        margin-top: auto;
+    }
+    .main-write-list{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+    }
+    .dc-border{
+        border-left: 1px solid black;
     }
     /* big container */
 /* main */
