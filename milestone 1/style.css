@@ -11,10 +11,61 @@ body{
     justify-content: center;
     align-items: center;
 }
+/* debug */
+.debug .current-user{
+    height: 4.375rem;
+    background-color: red;
+}
+.debug .small-container{
+    background-color: rgb(92, 92, 221);
+}
+.debug .notify{
+    height: 5rem; 
+    background-color: violet;
+}
+.debug .serch{
+    height: 35px;
+    background-color: aqua;
+}
+.debug .list{
+    height: 80px;
+    border: 1px solid black;
+    background-color: blueviolet;
+}
+/* debug */
+
+/* contenitore principale */
 .container{
     width: 80vw;
     background-color: red;
     margin: 0 auto;
-    height: 87vh;
+    height: 92vh;
 }
-
+/* main */
+#main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+    /* small container */
+    .small-container{
+        width: 35%;
+        height: 100%;
+        background-color: rgb(92, 92, 221);
+    }
+    .current-user{
+        width: 100%;
+        background-color: red;
+    }
+    .list{
+        list-style: none;
+    }
+    /* small container */
+    /* big container */
+    .big-container{
+        width: 65%;
+        height: 100%;
+        background-color: yellow;
+    }
+    /* big container */
+/* main */
