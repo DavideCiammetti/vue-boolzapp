@@ -5,4 +5,16 @@
 }
 body{
     font-family: 'Lato', sans-serif;
+    height: 100vh;
+    background: linear-gradient(to top, #dbdbd3  80%, #009688 20% );
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.container{
+    width: 80vw;
+    background-color: red;
+    margin: 0 auto;
+    height: 87vh;
+}
+
