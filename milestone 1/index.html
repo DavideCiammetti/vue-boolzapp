@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font awesome -->
     <!-- google font -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,48 +27,114 @@
                     <nav class="nav-bar">
                          <!-- barra in alto -->
                         <div class="current-user">
-                            <img src="" alt="img">
-                            <p>nome utente</p>
+                            <div class="current-user-img">
+                              <div class="user-img">
+                                <img src="../img/avatar_io.jpg" alt="me.img">
+                              </div>
+                                <p>nome utente</p>
+                            </div>
                             <ul class="icon-list">
-                                <li class="icon">charge</li>
-                                <li class="icon">message</li>
-                                <li class="icon">option</li>
+                                <li class="icon">
+                                    <i class="fa-solid fa-circle-notch ico-colo"></i>
+                                </li>
+                                <li class="icon"> 
+                                    <i class="fa-solid fa-message ico-colo"></i>
+                                </li>
+                                <li class="icon">
+                                    <i class="fa-solid fa-ellipsis-vertical ico-colo"></i>
+                                </li>
                             </ul>
                         </div>
-                         <!-- barra in alto -->
-                        <div class="notify">notify</div>
-                        <div class="serch">serch</div>
+                         <!--fine barra in alto sez small-->
+                        <div class="notify">
+                            <div class="notify-circle">
+                                <i class="fa-solid fa-bell-slash ico-colo"></i>
+                            </div>
+                           <div>
+                            <p>
+                                <strong>Ricevi notifiche di nuovi messaggi</strong>
+                            </p>
+                            <p class="notify-link"><a href="">Attiva notifiche desktop</a></p>
+                           </div>
+                        </div>
+                        <div class="serch">
+                            <p class="ico-search"><i class="fa-solid fa-magnifying-glass"></i></p>
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" name="search" class="serch-in">
+                        </div>
+                        <!-- lista immagini contatti sinistra -->
                         <div class="main-list-container">
                             <ul class="list-container">
-                                <li class="list">contact</li>
-                                <li class="list">contact</li>
-                                <li class="list">contact</li>
-                                <li class="list">contact</li>
+                                <li class="list">
+                                    <div class="user-img">
+                                        <img src="../img/avatar_1.jpg" alt="friend.img">
+                                    </div>
+                                    <p>name</p>
+                                </li>
+                                <li class="list">
+                                    <div class="user-img">
+                                        <img src="../img/avatar_2.jpg" alt="friend.img">
+                                    </div>
+                                    <p>name</p>
+                                </li>
+                                <li class="list">
+                                    <div class="user-img">
+                                        <img src="../img/avatar_3.jpg" alt="friend.img">
+                                    </div>
+                                    <p>name</p>
+                                </li>
                             </ul>
                         </div>
+                         <!--fine lista immagini contatti sinistra -->
                     </nav>
                 </div>
-                 <!-- contenitore di sinistra più piccolo -->
+                 <!--fine contenitore di sinistra più piccolo -->
                   <!-- contenitore di destra più grande -->
                 <div class="big-container">
                     <!-- barra in alto -->
-                    <div class="current-user dc-border">
+                    <div class="current-user dc-border bg-col">
                        <div class="friend-corner">
-                        <img src="" alt="img">
-                        <p>ultimo accesso</p>
+                            <div class="friend-img">
+                                <div class="user-img">
+                                    <img src="../img/avatar_1.jpg" alt="friend.img" class="friend-img">
+                                </div>
+                                <div class="visibility-friend-container">
+                                    <p class="name-friend">name</p>
+                                    <p class="visibility">ultimo accesso oggi alle</p>
+                                </div>
+                            </div>
                        </div>
                         <ul class="icon-list">
-                            <li class="icon">charge</li>
-                            <li class="icon">message</li>
-                            <li class="icon">option</li>
+                            <li class="icon">
+                                <i class="fa-solid fa-magnifying-glass ico-colo "></i>
+                            </li>
+                            <li class="icon">
+                                <i class="fa-solid fa-paperclip ico-colo"></i>
+                            </li>
+                            <li class="icon">
+                                <i class="fa-solid fa-ellipsis-vertical ico-colo"></i>
+                            </li>
                         </ul>
                     </div>
+                    <!-- container per i messaggi -->
+                    <div class="main-message-container">
+                        <div class="message-content">
+
+                        </div>
+                    </div>
+                    <!-- container per i messaggi -->
                     <!-- barra in alto -->
+                    <!-- barra di scrittura messaggio -->
                     <div class="write-bar">
                         <ul class="main-write-list">
-                            <li class="write-list">icon</li>
-                            <li class="write-list">input</li>
-                            <li class="write-list">input</li>
+                            <li class="write-list">
+                                <i class="fa-regular fa-face-smile ico-colo-wr"></i>
+                            </li>
+                            <li class="write-list write-input">
+                                <input type="text" placeholder="Scrivi un messagio" name="search" class="message-input" >
+                            </li>
+                            <li class="write-list">
+                                <i class="fa-solid fa-microphone ico-colo-wr"></i>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -73,9 +142,8 @@
             </main>
             <!-- main -->
         </div>
+          <!-- contenitore principale -->
     </div>
-
-
     <!-- vue js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- vue js -->

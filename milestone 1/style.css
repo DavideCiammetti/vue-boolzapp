@@ -3,51 +3,27 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* variabili */
+:root{
+    --bg-col-grey-100:#e7e7e7;
+}
+/* variabili */
 body{
     font-family: 'Lato', sans-serif;
     height: 100vh;
-    background: linear-gradient(to top, #dbdbd3  80%, #009688 20% );
+    background: linear-gradient(to top, #dbdbd3  80%, #009688 20%);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-/* debug */
-.debug .current-user{
-    height: 4.375rem;
-    background-color: red;
-}
-.debug .small-container{
-    background-color: rgb(92, 92, 221);
-}
-.debug .big-container{
-    background-color: yellow;
-}
-.debug .notify{
-    height: 5rem; 
-    background-color: violet;
-}
-.debug .serch{
-    height: 35px;
-    background-color: aqua;
-}
-.debug .list{
-    height: 5rem; 
-    border: 1px solid black;
-    background-color: blueviolet;
-}
-.debug .write-bar{
-    background-color: aqua;
-    height: 70px;
-}
-/* debug */
 
 /* contenitore principale */
 .container{
     width: 80vw;
-    background-color: red;
     margin: 0 auto;
     height: 92vh;
 }
+/* contenitore principale */
 /* main */
 #main{
     display: flex;
@@ -58,27 +34,124 @@ body{
     .small-container{
         width: 35%;
         height: 100%;
-        background-color: rgb(92, 92, 221);
     }
-    /*div utente */
+    .nav-bar,
+    .small-container{
+        background-color:  #ede9ea;
+    }
+    .bg-col,
     .current-user{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        background-color: #eaeaea;
     }
-    .icon-list{
-        display: flex;
-    }
-    .icon{
-        padding-right: 21px;
-    }
-     /*div utente */
-    .list, 
-    .icon-list{
-        list-style: none;
-    }
-    /* small container */
+        /*div utente in alto*/
+        .current-user{      /*barra in alto che mostra utente con 3 icone*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .current-user-img{
+            display: flex;
+        }
+         /*icone barra in alto*/
+        .icon-list{        
+            display: flex;
+        }
+        .icon{
+            padding-right: 1.3125rem;
+        }
+        .ico-colo{       /*colore icone generico*/
+            color: #bcbcbc;
+        }
+         /*fine icone barra in alto*/
+        /*fine div utente in alto */
+        .list, 
+        .icon-list{
+            list-style: none;
+        }
+        .user-img{          /*container immagini utenti*/
+            width: 50px;
+        }
+        .user-img img, list img{
+            width:100%;
+            border-radius: 50%;
+            margin: .625rem;
+            display: block;
+        }
+        /* barra di ricerca */
+        .serch{         
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .serch-in{                      /*barra di ricerca*/
+            background-color: #ede9ea;
+            margin: 7px 0 7px 0;
+            height: 35px;
+            width: 98%;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid var(--bg-col-grey-100);
+            border-top: 1px solid var(--bg-col-grey-100);
+            border-right: 1px solid var(--bg-col-grey-100);
+        }
+        .fa-magnifying-glass{       /*icona lente*/
+            color: #bcbcbc;
+        }
+        .ico-search{                 /*contenitore icona lente*/
+           margin-left: 10px;
+           padding-right: 15px;
+           border-left: 1px solid var(--bg-col-grey-100);
+        }
+        /*fine barra di ricerca */
+        /* sezione notifiche sopra barra ricerche */
+        .notify{            /*barra notifiche*/
+            background-color: #8edafc;
+            padding: 10px;
+            display: flex;
+        }
+        .fa-bell-slash{     /*icona campana*/
+            color: #8edafc;
+        }
+        .notify-circle{ /*cerchio che raachiude campana notifiche*/
+            width: 50px;
+            height: 50px;
+            line-height: 3;
+            text-align: center;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: white;
+            margin-right: 10px;
+        }
+        .notify-link a{
+            text-decoration: none;
+            color: #6399b1;
+            text-decoration: Underline;
+        }
+         /*fine sezione notifiche sopra barra ricerche */
+        /* lista immagini sinistra */
+        .main-list-container{
+            height: 100%;
+            margin-right: .8125rem;
+            box-shadow: 1px 0 #dbdbdb;
+        }
+        .list{             /*elemento lista li*/
+            display: flex;
+            box-shadow: 0 1px var(--bg-col-grey-100);
+        }
+        .current-user-img p{
+            line-height: 4;
+        }
+        .list, img{
+            margin-left: .4375rem;
+        }
+        .list p,
+        .current-user-img p,
+        .visibility-friend-container p{
+            margin-left: 20px;
+        }
+        /*fine lista immagini sinistra */
+    /*fine small container */
     /* big container */
     .big-container{
         width: 65%;
@@ -86,17 +159,76 @@ body{
         display: flex;
         flex-direction: column;
     }
-    .write-bar{
-        margin-top: auto;
-    }
-    .main-write-list{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 100%;
-    }
-    .dc-border{
-        border-left: 1px solid black;
-    }
-    /* big container */
+        .dc-border{
+            border-left: 2px solid #d7d7d7;
+        }
+        .friend-corner{ /*container foto ed elementi foto*/
+            display: flex;
+        }
+        .friend-img{        /*contenitore più piccolo*/
+            display: flex;
+        }
+        .visibility-friend-container{   /*container info img name e log */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .visibility{
+            font-size: 10px;
+            color: #9b9fa0;
+        }
+
+        /* barra inferiore input messaggio */
+        .write-bar{     /*container barra di scrittura */
+            margin-top: auto;
+            background-color: #e5e2df;
+        }
+        .ico-colo-wr{   /*colore icone accanto input messaggio*/
+            color: #7a7a7a;
+        }
+        .main-write-list{       /*ul lista per input message e icone laterali*/
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            list-style: none;
+        }
+        /* input */
+        .write-input{
+            width: 75%;
+            text-align: center;
+        }
+        .message-input{
+            background-color: #ede9ea;
+            margin: 10px 0 10px 0;
+            border-radius: 3px;
+            height: 40px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+        /*fine input */
+        /* barra inferiore input messaggio */
+
+        /******************************
+        //////spazio per i messaggi/////
+
+        questa parte si trova al centro ma per 
+        separarla la metto qua in fondo
+        *******************************/
+        .main-message-container{    /*contenitore principale*/
+            width: 100%;
+            height: 100%;
+            background-color: #fafafa;
+        }
+        .message-content{        /*contenitore secondario*/
+            width: 99%;
+            height: 100%;
+            background-image: url('../img/mine.jpg');
+            margin-right: 10px;
+        }
+    
+        /* spazio per i messaggi  */
+    /*fine big container */
 /* main */
