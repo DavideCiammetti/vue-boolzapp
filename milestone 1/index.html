@@ -106,16 +106,16 @@
                     </div>
                     <!-- container per i messaggi -->
                     <div class="main-message-container">
-                        <div v-for="cont in contacts" class="message-content">
+                        <div v-for="(cont, index) in contacts" :class="index === curIndex ? 'message-content' : 'd-none'">
 
                             <!-- contenitore messaggi -->
-                            <div  v-for="(message, index) in cont.messages"  class="two-message-container">
+                            <div class="two-message-container" v-for="(message, index) in cont.messages" >
                                 <!-- messaggio ricevuto -->
-                                <div  :class="message.status === 'received' ?'mex-received-color' : ''" class="mex-received">
+                                <div :class="message.status === 'received' ?'mex-received-color' : ''" class="mex-received">
                                     <p :class="message.status !== 'received' ?'d-none' : ''"  class="message">{{message.message}}</p>
                                 </div>
                                  <!-- messaggio inviato -->
-                                <div  :class="message.status === 'sent' ?'mex-send-color' : ''" class="mex-send">
+                                <div :class="message.status === 'sent' ?'mex-send-color' : ''" class="mex-send">
                                     <p  :class="message.status !== 'sent' ?'d-none' : ''"  class="message">{{message.message}}</p>
                                 </div>
                             </div>

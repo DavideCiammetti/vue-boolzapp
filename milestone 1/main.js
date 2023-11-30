@@ -174,11 +174,12 @@ createApp({
   },
 
     methods:{
-        // cambia utente 
+        // cambia utente
         changeUser(index){
             this.curIndex = index;
             console.log('ciao');
-        }
+        },
+       
     }
 }).mount('#app')
 
