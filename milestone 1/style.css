@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* v-cloak vue js */
+[v-cloak] {
+    display: none;
+  }
+/* v-cloak vue js */
 /* variabili */
 :root{
     --bg-col-grey-100:#e7e7e7;
