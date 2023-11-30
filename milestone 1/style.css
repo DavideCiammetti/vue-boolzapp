@@ -225,7 +225,7 @@ body{
         /******************************
         //////spazio per i messaggi/////
 
-        questa parte si trova al centro ma per 
+        questa parte si trova al centro in html ma per 
         separarla la metto qua in fondo
         *******************************/
         .main-message-container{    /*contenitore principale*/
@@ -238,8 +238,33 @@ body{
             height: 100%;
             background-image: url('../img/mine.jpg');
             margin-right: 10px;
+            padding-top: 30px;
         }
-    
+        .two-message-container{
+            display: flex;
+            justify-content: space-around;
+            padding-top: 10px;
+        }
+        .mex-received,
+        .mex-send{
+            width: 40%;
+            min-width: 150px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        .mex-received{   /*messaggio ricevuto*/
+            background-color: white;
+        }
+        .mex-send{
+            background-color: #d5f9ba;
+        }
+        .message{
+            margin-left: 17px;
+            font-size: 13px;
+        }
         /* spazio per i messaggi  */
     /*fine big container */
 /* main */
