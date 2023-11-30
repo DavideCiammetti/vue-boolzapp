@@ -64,23 +64,11 @@
                         <!-- lista immagini contatti sinistra -->
                         <div class="main-list-container">
                             <ul class="list-container">
-                                <li class="list">
+                                <li class="list" v-for="contact in contacts">
                                     <div class="user-img">
-                                        <img src="../img/avatar_1.jpg" alt="friend.img">
+                                      <img :src="contact.avatar" alt="{{contact.name}}.img">
                                     </div>
-                                    <p>name</p>
-                                </li>
-                                <li class="list">
-                                    <div class="user-img">
-                                        <img src="../img/avatar_2.jpg" alt="friend.img">
-                                    </div>
-                                    <p>name</p>
-                                </li>
-                                <li class="list">
-                                    <div class="user-img">
-                                        <img src="../img/avatar_3.jpg" alt="friend.img">
-                                    </div>
-                                    <p>name</p>
+                                    <p>{{contact.name}}</p>
                                 </li>
                             </ul>
                         </div>
