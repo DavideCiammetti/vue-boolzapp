@@ -180,13 +180,6 @@ createApp({
             this.curIndex = index;
             console.log('ciao');
         },
-        // funzione che racchiude le funzioni precedenti per essere chiamata al click dell'enter
-        sendMessage() {
-            if (this.newMessage && this.newMessage.trim() !== '') {
-                this.addMessage();
-                this.timeResponse();
-            }
-        },
         // funzione aggiungi messaggio 
         addMessage() {
             if (this.newMessage && this.newMessage.trim() !== '') {
@@ -196,6 +189,7 @@ createApp({
                     message: this.newMessage,
                     status: 'sent'
                 });
+                this.timeResponse();
                 this.newMessage = '';
             }
         },
