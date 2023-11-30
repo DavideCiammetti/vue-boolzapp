@@ -180,6 +180,14 @@ createApp({
             this.curIndex = index;
             console.log('ciao');
         },
+        // funzione che racchiude le funzioni precedenti per essere chiamata al click dell'enter
+        sendMessage() {
+            if (this.newMessage && this.newMessage.trim() !== '') {
+                this.addMessage();
+                this.timeResponse();
+            }
+        },
+        // funzione aggiungi messaggio 
         addMessage() {
             if (this.newMessage && this.newMessage.trim() !== '') {
                 const contact = this.contacts[this.curIndex];
@@ -190,6 +198,19 @@ createApp({
                 });
                 this.newMessage = '';
             }
+        },
+        // funzione per settare l'invio di un 'ok' dopo 1 secondo 
+        timeResponse(){
+            const setTime = setTimeout(this.response, 1000);
+          },
+        // funzione per creare un messaggio di ok ma come se fosse ricevuto (status: 'received')
+        response(){
+            const contact = this.contacts[this.curIndex];
+            contact.messages.push({
+                date: 0,
+                message: 'ok',
+                status: 'received'
+            });
         },
        
     }
