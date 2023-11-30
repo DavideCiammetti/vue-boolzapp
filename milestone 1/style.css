@@ -76,11 +76,11 @@ body{
         }
         .user-img{          /*container immagini utenti*/
             width: 50px;
+            margin: .625rem;
         }
         .user-img img, list img{
             width:100%;
             border-radius: 50%;
-            margin: .625rem;
             display: block;
         }
         /* barra di ricerca */
@@ -133,6 +133,7 @@ body{
             object-fit: cover;
             background-color: white;
             margin-right: 10px;
+            margin-left: 10px;
         }
         .notify-link a{
             text-decoration: none;
