@@ -170,6 +170,7 @@ createApp({
             }
         ],
         curIndex: 0,
+        newMessage: null,
     };
   },
 
@@ -178,6 +179,17 @@ createApp({
         changeUser(index){
             this.curIndex = index;
             console.log('ciao');
+        },
+        addMessage() {
+            if (this.newMessage && this.newMessage.trim() !== '') {
+                const contact = this.contacts[this.curIndex];
+                contact.messages.push({
+                    date: 0,
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+                this.newMessage = '';
+            }
         },
        
     }

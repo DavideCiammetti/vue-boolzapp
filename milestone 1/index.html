@@ -133,7 +133,8 @@
                                 <i class="fa-regular fa-face-smile ico-colo-wr"></i>
                             </li>
                             <li class="write-list write-input">
-                                <input type="text" placeholder="Scrivi un messagio" name="search" class="message-input" >
+                                <input type="text" placeholder="Scrivi un messagio"
+                                 name="search" class="message-input" v-model="newMessage"  @keyup.enter="addMessage">
                             </li>
                             <li class="write-list">
                                 <i class="fa-solid fa-microphone ico-colo-wr"></i>
