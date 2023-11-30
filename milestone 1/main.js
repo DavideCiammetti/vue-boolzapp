@@ -168,8 +168,18 @@ createApp({
                     }
                 ],
             }
-        ],        
+        ],
+        curIndex: 0,
     };
   },
+
+    methods:{
+        // cambia utente 
+        changeUser(index){
+            this.curIndex = index;
+            console.log('ciao');
+        }
+    }
 }).mount('#app')
 
+// console.log('ciao');

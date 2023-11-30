@@ -59,12 +59,13 @@
                         </div>
                         <div class="serch">
                             <div class="ico-search"><i class="fa-solid fa-magnifying-glass"></i></div>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat" name="search" class="serch-in">
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" 
+                            name="search" class="serch-in">
                         </div>
                         <!-- lista immagini contatti sinistra -->
                         <div class="main-list-container">
                             <ul class="list-container">
-                                <li class="list" v-for="contact in contacts">
+                                <li class="list" v-for="(contact, index) in contacts" @click=" changeUser(index)">
                                     <div class="user-img">
                                       <img :src="contact.avatar" alt="{{contact.name}}.img">
                                     </div>
@@ -82,12 +83,12 @@
                     <div class="current-user dc-border bg-col">
                        <div class="friend-corner">
                             <div class="friend-img">
-                                <div class="user-img">
-                                    <img src="../img/avatar_1.jpg" alt="friend.img" class="friend-img">
+                                <div v-for="(user, index) in contacts" :class="index === curIndex ? 'user-img' : 'd-none'">
+                                    <img :src="user.avatar" alt="friend.img" class="friend-img" >
                                 </div>
-                                <div class="visibility-friend-container">
-                                    <p class="name-friend">name</p>
-                                    <p class="visibility">ultimo accesso oggi alle</p>
+                                <div v-for="(name, index) in contacts" :class="index === curIndex ? 'visibility-friend-container' : 'd-none'" >
+                                    <p class="name-friend">{{name.name}}</p>
+                                    <!-- <p v-for="date in name.messages" :class="index === curIndex ? 'visibility' : 'd-none'">{{date.date}}</p> features-->
                                 </div>
                             </div>
                        </div>
@@ -103,24 +104,23 @@
                             </li>
                         </ul>
                     </div>
-
                     <!-- container per i messaggi -->
                     <div class="main-message-container">
-                        <div class="message-content">
+                        <div v-for="cont in contacts" class="message-content">
 
                             <!-- contenitore messaggi -->
-                            <div class="two-message-container">
+                            <div  v-for="(message, index) in cont.messages"  class="two-message-container">
                                 <!-- messaggio ricevuto -->
-                                <div class="mex-received">
-                                    <p class="message">mess ricevuto white</p>
+                                <div  :class="message.status === 'received' ?'mex-received-color' : ''" class="mex-received">
+                                    <p :class="message.status !== 'received' ?'d-none' : ''"  class="message">{{message.message}}</p>
                                 </div>
                                  <!-- messaggio inviato -->
-                                <div class="mex-send">
-                                    <p class="message">mess inviato green</p>
+                                <div  :class="message.status === 'sent' ?'mex-send-color' : ''" class="mex-send">
+                                    <p  :class="message.status !== 'sent' ?'d-none' : ''"  class="message">{{message.message}}</p>
                                 </div>
                             </div>
                              <!-- contenitore messaggi -->
-                             
+
                         </div>
                     </div>
 

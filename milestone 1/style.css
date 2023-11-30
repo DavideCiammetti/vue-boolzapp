@@ -232,13 +232,14 @@ body{
             width: 100%;
             height: 100%;
             background-color: #fafafa;
+            overflow: hidden;
         }
         .message-content{        /*contenitore secondario*/
-            width: 99%;
+            width: 100%;
             height: 100%;
             background-image: url('../img/mine.jpg');
-            margin-right: 10px;
             padding-top: 30px;
+            overflow: auto;
         }
         .two-message-container{
             display: flex;
@@ -255,15 +256,18 @@ body{
             justify-content: center;
             border-radius: 10px;
         }
-        .mex-received{   /*messaggio ricevuto*/
+        .mex-received-color{   /*messaggio ricevuto*/
             background-color: white;
         }
-        .mex-send{
+        .mex-send-color{
             background-color: #d5f9ba;
         }
         .message{
             margin-left: 17px;
             font-size: 13px;
+        }
+        .d-none{
+            display: none;
         }
         /* spazio per i messaggi  */
     /*fine big container */
