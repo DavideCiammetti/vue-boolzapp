@@ -196,6 +196,12 @@ body{
             flex-direction: column;
             justify-content: center;
         }
+        .info-user{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 15px;
+        }
         .visibility{
             font-size: 10px;
             color: #9b9fa0;

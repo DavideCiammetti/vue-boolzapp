@@ -95,8 +95,11 @@
                             <div class="friend-img">
                                 <div class="user-img">
                                     <img :src="contacts[curIndex].avatar" alt="friend.img" class="friend-img" >
-                                    <p class="name-friend visibility-friend-container">{{ contacts[curIndex].name }}</p>
                                 </div>
+                                <div class="info-user">
+                                    <p class="name-friend visibility-friend-container">{{ contacts[curIndex].name }}</p>
+                                    <p>ultimo accesso oggi alle 12</p>
+                               </div>
                                
                             </div>
                        </div>
@@ -143,7 +146,7 @@
                             <!-- li input messaggio -->
                             <li class="write-list write-input">
                                 <input type="text" placeholder="Scrivi un messagio"
-                                 name="search" class="message-input" v-model="newMessage" @keyup.enter="addMessage">
+                                 name="message" class="message-input" v-model="newMessage" @keyup.enter="addMessage">
                             </li>
                             <!-- li input messaggio -->
                             <li class="write-list">
