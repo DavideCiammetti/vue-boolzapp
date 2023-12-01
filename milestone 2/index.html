@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- font awesome -->
+    <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- google font -->
+    <title>Boolzapp</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="./styel.css">
+    <!-- link css -->
+</head>
+<body class="debug">
+    <div id="app" v-cloak>
+        <!-- contenitore principale -->
+        <div class="container">
+            <!-- main -->
+            <main id="main">
+                <!-- contenitore di sinistra più piccolo -->
+                <div class="small-container">
+                    <nav class="nav-bar">
+                         <!-- barra in alto -->
+                        <div class="current-user">
+                            <div class="current-user-img">
+                              <div class="user-img">
+                                <img src="../img/avatar_io.jpg" alt="me.img">
+                              </div>
+                                <p>nome utente</p>
+                            </div>
+                            <ul class="icon-list">
+                                <li class="icon">
+                                    <i class="fa-solid fa-circle-notch ico-colo"></i>
+                                </li>
+                                <li class="icon"> 
+                                    <i class="fa-solid fa-message ico-colo"></i>
+                                </li>
+                                <li class="icon">
+                                    <i class="fa-solid fa-ellipsis-vertical ico-colo"></i>
+                                </li>
+                            </ul>
+                        </div>
+                         <!--fine barra in alto sez small-->
+                        <div class="notify">
+                            <div class="notify-circle">
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </div>
+                           <div class="notify-specific">
+                            <p>
+                                <strong>Ricevi notifiche di nuovi messaggi</strong>
+                            </p>
+                            <p class="notify-link"><a href="">Attiva notifiche desktop</a></p>
+                           </div>
+                        </div>
+                        <div class="serch">
+                            <div class="ico-search"><i class="fa-solid fa-magnifying-glass"></i></div>
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" 
+                            name="search" class="serch-in">
+                        </div>
+                        <!-- lista immagini contatti sinistra -->
+                        <div class="scroll-li">
+                        <div class="main-list-container">
+                            <ul class="list-container">
+                                <li class="list" v-for="(contact, index) in contacts" @click="changeUser(index)">
+                                    <div class="user-img">
+                                      <img :src="contact.avatar" alt="{{contact.name}}.img">
+                                    </div>
+                                    <p>{{contact.name}}</p>
+                                    <!-- <p>{{contact.}}</p> -->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                         <!--fine lista immagini contatti sinistra -->
+                    </nav>
+                </div>
+                 <!--fine contenitore di sinistra più piccolo -->
+                  <!-- contenitore di destra più grande -->
+                <div class="big-container">
+                    <!-- barra in alto -->
+                    <div class="current-user dc-border bg-col">
+                       <div class="friend-corner">
+                            <div class="friend-img">
+                                <div v-for="(user, index) in contacts" :class="index === curIndex ? 'user-img' : 'd-none'">
+                                    <img :src="user.avatar" alt="friend.img" class="friend-img" >
+                                </div>
+                                <div v-for="(name, index) in contacts" :class="index === curIndex ? 'visibility-friend-container' : 'd-none'" >
+                                    <p class="name-friend">{{name.name}}</p>
+                                </div>
+                            </div>
+                       </div>
+                        <ul class="icon-list">
+                            <li class="icon">
+                                <i class="fa-solid fa-magnifying-glass ico-colo "></i>
+                            </li>
+                            <li class="icon">
+                                <i class="fa-solid fa-paperclip ico-colo"></i>
+                            </li>
+                            <li class="icon">
+                                <i class="fa-solid fa-ellipsis-vertical ico-colo"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- container per i messaggi -->
+                    <div class="main-message-container">
+                        <div v-for="(cont, index) in contacts" :class="index === curIndex ? 'message-content' : 'd-none'">
+
+                            <!-- contenitore messaggi -->
+                            <div class="two-message-container" v-for="(message, index) in cont.messages" >
+                                <!-- messaggio ricevuto -->
+                                <div :class="message.status === 'received' ?'mex-received-color' : ''" class="mex-received">
+                                    <p :class="message.status !== 'received' ?'d-none' : ''" class="message">{{message.message}}</p>
+                                </div>
+                                 <!-- messaggio inviato -->
+                                <div :class="message.status === 'sent' ?'mex-send-color' : ''" class="mex-send">
+                                    <p  :class="message.status !== 'sent' ?'d-none' : ''" class="message">{{message.message}}</p>
+                                </div>
+                            </div>
+                             <!-- contenitore messaggi -->
+
+                        </div>
+                    </div>
+
+                    <!-- container per i messaggi -->
+                    <!-- barra in alto -->
+                    <!-- barra di scrittura messaggio -->
+                    <div class="write-bar">
+                        <ul class="main-write-list">
+                            <li class="write-list">
+                                <i class="fa-regular fa-face-smile ico-colo-wr"></i>
+                            </li>
+                            <!-- li input messaggio -->
+                            <li class="write-list write-input">
+                                <input type="text" placeholder="Scrivi un messagio"
+                                 name="search" class="message-input">
+                            </li>
+                            <!-- li input messaggio -->
+                            <li class="write-list">
+                                <i class="fa-solid fa-microphone ico-colo-wr"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- contenitore di destra più grande -->
+            </main>
+            <!-- main -->
+        </div>
+          <!-- contenitore principale -->
+    </div>
+    <!-- vue js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- vue js -->
+    <!-- library luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <!-- library luxon -->
+    <!-- my js -->
+    <script src="main.js"></script>
+</body>
+</html>
