@@ -36,3 +36,6 @@ mentre con  v-for="(contact, index) in contacts"-------> ciclo gli elementi nel 
 questo snippet lo uso per prendere una delle immagini cliccate nella lista e quindi aprire la chat con quella persona ----- <img :src="contacts[curIndex].avatar" -----> in questo modo senza usare il ciclo for uso il muo curIndex in js e mi fa da indice corrente per scorrere l'array principale e prendere poi avatar= foto
 nel mio array.
 faccio la stessa cosa per prendere il nome ----contacts[curIndex].name---->
+
+## Milestone 5 
+Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
