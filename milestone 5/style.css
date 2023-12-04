@@ -300,6 +300,7 @@ body{
             top: 50%;
             width: 183px;
             text-align: center;
+            border-radius: 7px;
         }
         .angle-down-menu{
             position: absolute;

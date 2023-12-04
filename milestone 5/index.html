@@ -120,7 +120,7 @@
                         <div v-for="(cont, index) in contacts" :class="index === curIndex ? 'message-content' : 'd-none'">
 
                             <!-- contenitore messaggi -->
-                            <div class="two-message-container" v-for="(message, mexIndex) in cont.messages" >
+                            <div class="two-message-container" v-for="(message, mexIndex) in cont.messages" v-show="message.indexMenu === false">
                                 <!-- messaggio ricevuto -->
                                 <div :class="message.status === 'received' ?'mex-received-color' : ''" class="mex-received">
                                     <p :class="message.status !== 'received' ?'d-none' : ''" class="message">{{message.message}}</p>
@@ -128,24 +128,30 @@
 
                                         <!-- gestione menu tendina ----------------------------------------------->
                                     <div :class="message.status === 'received' ?'d-block' : 'd-none'">
-                                        <p class="angle-down-menu"  @click="showMenu(mexIndex, index)"><i class="fa-solid fa-angle-down"></i></p>
+                                        <p class="angle-down-menu"  @click="showMenu(mexIndex, index)">
+                                            <i class="fa-solid fa-angle-down"></i>
+                                        </p>
                                         <div :class="message.dropDown === true ?'d-block' : ''" class="d-none message-menu diff-menu-col">
                                             <p class="info-mex-menu">Message info</p>
-                                            <p class="info-mex-menu">Delete message</p>
+                                            <p class="info-mex-menu" @click="deleteMessage(mexIndex, index)">Delete message</p>
                                         </div>
                                     </div>
                                 </div>
                                  <!-- messaggio inviato -->
-                                <div :class="message.status === 'sent' ?'mex-send-color' : ''" class="mex-send">
+                                <div :class="message.status === 'sent' ?'mex-send-color' : ''" class="mex-send" :class="indexMenu === true ? 'col-mex-none': ''">
                                     <p  :class="message.status !== 'sent' ?'d-none' : ''" class="message">{{message.message}}</p>
-                                    <p :class="message.status !== 'sent' ?'d-none' : ''"  class="hour">15:50</p>
+                                    <p v-show="message.status === 'sent'" class="hour">{{message.date}}</p>
 
                                           <!-- gestione menu tendina --------------------------------------------->
-                                    <div  :class="message.status === 'sent' ?'d-block' : 'd-none'">
-                                        <p class="angle-down-menu"  @click="showMenu(mexIndex, index)" ><i class="fa-solid fa-angle-down"></i></p>
+                                    <div :class="message.status === 'sent' ?'d-block' : 'd-none'" :class="indexMenu === true ? 'd-none':''">
+                                        <!-- icona delete message  -->
+                                        <p class="angle-down-menu"  @click="showMenu(mexIndex, index)">
+                                            <i class="fa-solid fa-angle-down"></i>
+                                        </p>
+                                        <!-- icona delete message  -->
                                         <div :class="message.dropDown === true ?'d-block' : ''" class="d-none message-menu">
-                                            <p class="info-mex-menu">Message info</p>
-                                            <p class="info-mex-menu">Delete message</p>
+                                            <p class="info-mex-menu" >Message info</p>
+                                            <p class="info-mex-menu" @click="deleteMessage(mexIndex, index)">Delete message</p>
                                         </div>
                                     </div>
                                 </div>
