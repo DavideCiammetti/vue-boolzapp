@@ -227,34 +227,39 @@ createApp({
         },
         // funzione aggiungi messaggio 
         addMessage() {
+            let DateTime = luxon.DateTime.now();
+            let now = DateTime.toFormat("HH:mm:ss");
             if (this.newMessage !== null && this.newMessage.trim() !== '') {
                 const contact = this.contacts[this.curIndex];
                 contact.messages.push({
-                    date: 0,
+                    date: now,
                     message: this.newMessage,
                     status: 'sent',
                     dropDown: false,
                     indexMenu: false,
                 });
-                this.timeResponse();
                 this.newMessage = '';
             }
+            this.timeResponse();
+            this.validator = true;
+            return now;
         },
         // funzione per settare l'invio di un 'ok' dopo 1 secondo 
         timeResponse(){
-            const setTime = setTimeout(this.response, 1000);
+            setTimeout(this.response, 1000);
           },
         // funzione per creare un messaggio di ok ma come se fosse ricevuto (status: 'received')
         response(){
+            let DateTime = luxon.DateTime.now();
+            let now = DateTime.toFormat("HH:mm:ss");
             const contact = this.contacts[this.curIndex];
             contact.messages.push({
-                date: 0,
+                date: now,
                 message: 'ok',
                 status: 'received',
                 dropDown: false,
                 indexMenu: false,
             });
-
         },
         // funzione per cercare elementi nella lista
         newSearch() {
@@ -291,7 +296,6 @@ createApp({
                 } else if(message[mexIndex].dropDown === true){
                   message[mexIndex].dropDown = false; 
                 }
-                console.log(message.dropDown);    
           },
         //   funzione elimin messaggi---> ho messo un v-show sul secondo div con classe="two-message-container" che al click imposta display none alla riga 
           deleteMessage(mexIndex,index){
@@ -299,13 +303,26 @@ createApp({
             let message = contact.messages;
             message[mexIndex].indexMenu = true;
           },
-          
-          
-          
+        //   funzione gestione tempo minuti e ore 
+        timeControl(){
+            let DateTime = luxon.DateTime.now();
+            let now = DateTime.toFormat("HH:mm:ss");
+            return now;
+        },
+        lastAccess(contact) {
+            let DateTime = luxon.DateTime.now();
+            let now = DateTime.toFormat("HH:mm:ss");
+            let message = contact.messages;
+            let time;
+            message.date = now;
+                for(let i = 0; i < message.length; i++){
+                    console.log(message[i].date);
+                    time = message[i].date;
+                }
+                return time;
+        }
     }
     
 }).mount('#app')
 
 // console.log('ciao');
- // let DateTime = luxon.DateTime.local();
-// console.log(DateTime);

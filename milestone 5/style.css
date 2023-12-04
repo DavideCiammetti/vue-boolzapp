@@ -74,7 +74,8 @@ body{
         .icon-list{
             list-style: none;
         }
-        .list{
+        .list,
+        .angle-down-menu{
             cursor: pointer;
         }
         .user-img{          /*container immagini utenti*/
@@ -88,7 +89,7 @@ body{
         }
         .time-user{
             margin-left: 130px;
-             color: rgb(185, 184, 184);
+            color: rgb(185, 184, 184);
             font-size: 12px;
         }
         .info-user :last-child{

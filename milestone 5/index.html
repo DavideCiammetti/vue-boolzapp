@@ -77,7 +77,7 @@
                                         <p>ultimo messaggio inviato</p>
                                     </div>
                                       <div class="time-user">
-                                        <p>12:00</p>
+                                        <p>{{lastAccess(contact)}}</p>
                                       </div>
                                 </li>
                             </ul>
@@ -97,8 +97,8 @@
                                     <img :src="contacts[curIndex].avatar" alt="friend.img" class="friend-img" >
                                 </div>
                                 <div class="info-user">
-                                    <p class="name-friend visibility-friend-container">{{ contacts[curIndex].name }}</p>
-                                    <p>ultimo accesso oggi alle 12</p>
+                                    <p class="name-friend visibility-friend-container">{{contacts[curIndex].name }}</p>
+                                    <p>ultimo accesso oggi alle {{timeControl()}}</p>
                                </div>
                                
                             </div>
@@ -124,7 +124,7 @@
                                 <!-- messaggio ricevuto -->
                                 <div :class="message.status === 'received' ?'mex-received-color' : ''" class="mex-received">
                                     <p :class="message.status !== 'received' ?'d-none' : ''" class="message">{{message.message}}</p>
-                                    <p :class="message.status !== 'received' ?'d-none' : ''" class="hour">15:50</p>
+                                    <p :class="message.status !== 'received' ?'d-none' : ''" class="hour">{{message.date}}</p>
 
                                         <!-- gestione menu tendina ----------------------------------------------->
                                     <div :class="message.status === 'received' ?'d-block' : 'd-none'">
