@@ -282,7 +282,6 @@ createApp({
             }
         },
         changeIndex(index){
-            console.log(index);
             this.curIndex = index;
         },
 
@@ -309,17 +308,21 @@ createApp({
             let now = DateTime.toFormat("HH:mm:ss");
             return now;
         },
+        // funzione cambia orario all'invio del messaggio (da modificare)
         lastAccess(contact) {
-            let DateTime = luxon.DateTime.now();
-            let now = DateTime.toFormat("HH:mm:ss");
+            let time =  this.timeControl();
             let message = contact.messages;
-            let time;
-            message.date = now;
-                for(let i = 0; i < message.length; i++){
+            const receivedMex = contact.messages[contact.messages.length - 1];
+    
+            if (receivedMex && receivedMex.status === 'received') {
+            message.date = time;
+                for(let i = 1; i < message.length ; i++){
                     console.log(message[i].date);
                     time = message[i].date;
                 }
+                console.log(time);
                 return time;
+            }
         }
     }
     
