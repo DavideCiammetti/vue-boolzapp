@@ -227,8 +227,7 @@ createApp({
         },
         // funzione aggiungi messaggio 
         addMessage() {
-            let DateTime = luxon.DateTime.now();
-            let now = DateTime.toFormat("HH:mm:ss");
+            let now = this.timeControl();
             if (this.newMessage !== null && this.newMessage.trim() !== '') {
                 const contact = this.contacts[this.curIndex];
                 contact.messages.push({
@@ -241,8 +240,6 @@ createApp({
                 this.newMessage = '';
             }
             this.timeResponse();
-            this.validator = true;
-            return now;
         },
         // funzione per settare l'invio di un 'ok' dopo 1 secondo 
         timeResponse(){
@@ -250,16 +247,16 @@ createApp({
           },
         // funzione per creare un messaggio di ok ma come se fosse ricevuto (status: 'received')
         response(){
-            let DateTime = luxon.DateTime.now();
-            let now = DateTime.toFormat("HH:mm:ss");
+            let now = this.timeControl();
             const contact = this.contacts[this.curIndex];
-            contact.messages.push({
-                date: now,
-                message: 'ok',
-                status: 'received',
-                dropDown: false,
-                indexMenu: false,
-            });
+         
+                contact.messages.push({
+                    date: now,
+                    message: 'ok',
+                    status: 'received',
+                    dropDown: false,
+                    indexMenu: false,
+                });
         },
         // funzione per cercare elementi nella lista
         newSearch() {
@@ -273,12 +270,10 @@ createApp({
                         contact.visible = false;
                     }
                 });
-                return this.contacts.filter(contact => contact.visible);
             } else {
                 this.contacts.forEach((contact) => {
                     contact.visible = true;
                 });
-                return this.contacts;
             }
         },
         changeIndex(index){
@@ -296,7 +291,7 @@ createApp({
                   message[mexIndex].dropDown = false; 
                 }
           },
-        //   funzione elimin messaggi---> ho messo un v-show sul secondo div con classe="two-message-container" che al click imposta display none alla riga 
+        //   funzione elimina messaggi---> ho messo un v-show sul secondo div con classe="two-message-container" che al click imposta display none alla riga 
           deleteMessage(mexIndex,index){
             const contact = this.contacts[index];
             let message = contact.messages;
@@ -312,17 +307,15 @@ createApp({
         lastAccess(contact) {
             let time =  this.timeControl();
             let message = contact.messages;
-            const receivedMex = contact.messages[contact.messages.length - 1];
-    
-            if (receivedMex && receivedMex.status === 'received') {
+
             message.date = time;
-                for(let i = 1; i < message.length ; i++){
-                    console.log(message[i].date);
+            for(let i = 0; i < message.length; i++){
+                
+                if(message[i].status === 'received'){
                     time = message[i].date;
                 }
-                console.log(time);
-                return time;
             }
+            return time ;
         }
     }
     
