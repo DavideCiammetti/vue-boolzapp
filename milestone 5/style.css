@@ -215,6 +215,7 @@ body{
         }
         .ico-colo-wr{   /*colore icone accanto input messaggio*/
             color: #7a7a7a;
+            font-size: 25px;
         }
         .main-write-list{       /*ul lista per input message e icone laterali*/
             display: flex;
@@ -238,7 +239,9 @@ body{
             border: none;
             outline: none;
         }
-        .fa-paper-plane{    /*aereoplano per invio messaggi*/
+        .fa-paper-plane,
+        .ico-colo-wr
+        {    /*aereoplano per invio messaggi*/
             color: grey;
             font-size: 25px;
             cursor: pointer;
