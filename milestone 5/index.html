@@ -139,7 +139,7 @@
                                 </div>
                                  <!-- messaggio inviato -->
                                 <div :class="message.status === 'sent' ?'mex-send-color' : ''" class="mex-send" :class="indexMenu === true ? 'col-mex-none': ''">
-                                    <p  :class="message.status !== 'sent' ?'d-none' : ''" class="message">{{message.message}}</p>
+                                    <p :class="message.status !== 'sent' ?'d-none' : ''" class="message">{{message.message}}</p>
                                     <p v-show="message.status === 'sent'" class="hour">{{message.date}}</p>
 
                                           <!-- gestione menu tendina --------------------------------------------->

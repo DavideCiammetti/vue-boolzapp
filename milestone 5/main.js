@@ -216,6 +216,7 @@ createApp({
         curIndex: 0,
         newMessage: '',
         searchText: '',
+        word: false,
     };
   },
 
@@ -230,14 +231,16 @@ createApp({
             let now = this.timeControl();
             if (this.newMessage !== null && this.newMessage.trim() !== '') {
                 const contact = this.contacts[this.curIndex];
-                contact.messages.push({
-                    date: now,
-                    message: this.newMessage,
-                    status: 'sent',
-                    dropDown: false,
-                    indexMenu: false,
-                });
-                this.newMessage = '';
+        
+                    contact.messages.push({
+                        date: now,
+                        message: this.newMessage,
+                        status: 'sent',
+                        dropDown: false,
+                        indexMenu: false,
+                    });
+                    this.word = true;             //passo this.word come validatore che all'invio del mex diventa true e quindi manda ok altrimenti false e non manda ok
+                    this.newMessage = '';
             }
             this.timeResponse();
         },
@@ -249,7 +252,7 @@ createApp({
         response(){
             let now = this.timeControl();
             const contact = this.contacts[this.curIndex];
-         
+            if ( this.word) {
                 contact.messages.push({
                     date: now,
                     message: 'ok',
@@ -257,6 +260,8 @@ createApp({
                     dropDown: false,
                     indexMenu: false,
                 });
+            }
+            this.word = false;      //passo this.word come validatore che all'invio del mex diventa true e quindi manda ok altrimenti false e non manda ok
         },
         // funzione per cercare elementi nella lista
         newSearch() {
@@ -303,12 +308,12 @@ createApp({
             let now = DateTime.toFormat("HH:mm:ss");
             return now;
         },
-        // funzione cambia orario all'invio del messaggio (da modificare)
+        // funzione cambia orario all'invio del messaggio
         lastAccess(contact) {
             let time =  this.timeControl();
             let message = contact.messages;
-
             message.date = time;
+
             for(let i = 0; i < message.length; i++){
                 
                 if(message[i].status === 'received'){
