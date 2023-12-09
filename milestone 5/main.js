@@ -216,7 +216,9 @@ createApp({
         curIndex: 0,
         newMessage: '',
         searchText: '',
-        word: false,
+        voidWord: false,
+        paperPlaneShow: true,
+
     };
   },
 
@@ -239,7 +241,7 @@ createApp({
                         dropDown: false,
                         indexMenu: false,
                     });
-                    this.word = true;             //passo this.word come validatore che all'invio del mex diventa true e quindi manda ok altrimenti false e non manda ok
+                    this.voidWord = true;             //passo this.word come validatore che all'invio del mex diventa true e quindi manda ok altrimenti false e non manda ok
                     this.newMessage = '';
             }
             this.timeResponse();
@@ -252,7 +254,7 @@ createApp({
         response(){
             let now = this.timeControl();
             const contact = this.contacts[this.curIndex];
-            if ( this.word) {
+            if (this.voidWord) {
                 contact.messages.push({
                     date: now,
                     message: 'ok',
@@ -261,7 +263,7 @@ createApp({
                     indexMenu: false,
                 });
             }
-            this.word = false;      //passo this.word come validatore che all'invio del mex diventa true e quindi manda ok altrimenti false e non manda ok
+            this.voidWord = false;      //passo this.word come validatore che all'invio del mex diventa true e quindi manda ok altrimenti false e non manda ok
         },
         // funzione per cercare elementi nella lista
         newSearch() {
@@ -321,7 +323,7 @@ createApp({
                 }
             }
             return time ;
-        }
+        },
     }
     
 }).mount('#app')

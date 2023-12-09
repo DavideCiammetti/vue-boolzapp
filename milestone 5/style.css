@@ -238,6 +238,11 @@ body{
             border: none;
             outline: none;
         }
+        .fa-paper-plane{    /*aereoplano per invio messaggi*/
+            color: grey;
+            font-size: 25px;
+            cursor: pointer;
+        }
         /*fine input */
         /* barra inferiore input messaggio */
 

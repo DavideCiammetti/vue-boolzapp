@@ -176,7 +176,8 @@
                             </li>
                             <!-- li input messaggio -->
                             <li class="write-list">
-                                <i class="fa-solid fa-microphone ico-colo-wr"></i>
+                                <i  v-if="newMessage.length > 0" class="fa-solid fa-paper-plane" @click="addMessage"></i>
+                                <i v-if="newMessage.length === 0" class="fa-solid fa-microphone ico-colo-wr"></i>
                             </li>
                         </ul>
                     </div>
