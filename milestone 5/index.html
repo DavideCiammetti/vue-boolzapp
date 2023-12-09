@@ -68,9 +68,7 @@
                             <ul class="list-container">
                                 <li v-show="contact.visible" v-for="(contact, index) in contacts" class="list" @click="changeIndex(index)">
                                     <div class="user-img">
-                                     <div>
                                         <img :src="contact.avatar" alt="{{contact.name}}.img">
-                                     </div>
                                     </div>
                                     <div class="info-user">
                                         <p>{{contact.name}}</p>
@@ -110,8 +108,12 @@
                             <li class="icon">
                                 <i class="fa-solid fa-paperclip ico-colo"></i>
                             </li>
-                            <li class="icon">
+                            <li class="icon" @click=" delChatOrMessages">
                                 <i class="fa-solid fa-ellipsis-vertical ico-colo"></i>
+                                <div v-show="validator" class="delete-dropdown">
+                                    <p @click="delAllMex">Delete all messages</p>
+                                    <p>Delete chat</p>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -176,7 +178,7 @@
                             </li>
                             <!-- li input messaggio -->
                             <li class="write-list">
-                                <i  v-if="newMessage.length > 0" class="fa-solid fa-paper-plane" @click="addMessage"></i>
+                                <i  v-if="newMessage.length > 0 " class="fa-solid fa-paper-plane" @click="addMessage"></i>
                                 <i v-if="newMessage.length === 0" class="fa-solid fa-microphone ico-colo-wr"></i>
                             </li>
                         </ul>

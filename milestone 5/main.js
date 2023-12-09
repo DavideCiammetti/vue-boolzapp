@@ -217,8 +217,7 @@ createApp({
         newMessage: '',
         searchText: '',
         voidWord: false,
-        paperPlaneShow: true,
-
+        validator: false,
     };
   },
 
@@ -324,6 +323,19 @@ createApp({
             }
             return time ;
         },
+        delChatOrMessages(){
+            this.validator = !this.validator;
+            return this.validator;
+        },
+        delAllMex(){
+            const contact = this.contacts[this.curIndex];
+            let message = contact.messages;
+
+            for(let i = 0; i < message.length; i++){
+                message[i] = [];
+            }
+            return message;
+        }
     }
     
 }).mount('#app')
